@@ -1,2 +1,2 @@
 # LeetcodeTracker
-Collection of LC questions in preparation for coding interviews
+Collection of LC questions in preparation of coding interviews
