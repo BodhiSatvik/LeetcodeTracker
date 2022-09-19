@@ -15,7 +15,7 @@ class Solution:
             # Left portion
             if nums[l] <= nums[mid]:
                 l = mid + 1
-            else:
+            else: # Right portion
                 r = mid - 1
         
         return res
