@@ -9,7 +9,7 @@ class Solution:
 
         if not p and not q:
             return True
-        if not p or not q:
+        if (not p and q) or (p and not q):
             return False
         if (p.val != q.val):    # Base Cases
             return False
