@@ -7,7 +7,6 @@
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         
-        
         def sumCal(node, maxPath):
             if not node:
                 return [0, maxPath]
@@ -15,14 +14,9 @@ class Solution:
             l, m1 = sumCal(node.left, maxPath)
             r, m2 = sumCal(node.right, maxPath)
             maxPath = max(m1, m2)
-            
-            leftP = node.val + l
-            rightP = node.val + r
-            
-            totalP = node.val + l + r
 
-            maxPath = max(maxPath, totalP)
-            bestPath = max(leftP, rightP, 0)
+            maxPath = max(maxPath, node.val + l + r)
+            bestPath = max(node.val + l, node.val + r, 0)
 
 
             return [bestPath, maxPath]
