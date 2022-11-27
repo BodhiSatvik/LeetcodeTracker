@@ -20,10 +20,10 @@ class Solution:
             rightP = node.val + r
             
             totalP = node.val + l + r
-            print("b",maxPath)
+
             maxPath = max(maxPath, totalP)
             bestPath = max(leftP, rightP, 0)
-            print("a",maxPath, bestPath)
+
 
             return [bestPath, maxPath]
         
