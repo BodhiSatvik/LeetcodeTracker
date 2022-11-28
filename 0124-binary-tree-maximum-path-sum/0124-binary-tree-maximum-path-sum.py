@@ -17,11 +17,8 @@ class Solution:
             l = max(sumCal(node.left), 0)
             r = max(sumCal(node.right), 0)
 
-            maxPath = max(maxPath, node.val + l + r)
-            bestPath = node.val + max(l, r)
-
-
-            return bestPath
+            maxPath = max(maxPath, node.val + l + r) 
+            return node.val + max(l, r)
         
         sumCal(root)
         return maxPath
