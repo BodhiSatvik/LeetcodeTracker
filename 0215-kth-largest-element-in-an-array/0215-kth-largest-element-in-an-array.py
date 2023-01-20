@@ -1,28 +1,18 @@
 class Solution:
-    def partition(self, nums: List[int], left: int, right: int) -> int:
-        pivot, fill = nums[right], left
-
-        for i in range(left, right):
-            if nums[i] <= pivot:
-                nums[fill], nums[i] = nums[i], nums[fill]
-                fill += 1
-
-        nums[fill], nums[right] = nums[right], nums[fill]
-
-        return fill
-
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        k = len(nums) - k
-        left, right = 0, len(nums) - 1
-
-        while left < right:
-            pivot = self.partition(nums, left, right)
-
-            if pivot < k:
-                left = pivot + 1
-            elif pivot > k:
-                right = pivot - 1
-            else:
-                break
-
-        return nums[k]
+        k = len(nums) - k       # kth largest is also (n-k)th smallest
+        
+        def recFun(l, r):
+            p, pivot = l, nums[r]
+            
+            for i in range(l, r):
+                if nums[i] <= pivot:
+                    nums[i], nums[p] = nums[p], nums[i]
+                    p += 1
+            nums[p], nums[r] = nums[r], nums[p]
+            
+            if p < k: return recFun(p+1, r)
+            if p > k: return recFun(l, p-1)
+            else: return nums[p]
+        
+        return recFun(0, len(nums) - 1)
