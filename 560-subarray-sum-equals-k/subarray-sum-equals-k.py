@@ -1,13 +1,11 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        prefixSum = { 0: 1 }
-        curSum = 0
+        prefix_sum = { 0: 1 }
         res = 0
-
+        cursum = 0
         for n in nums:
-            curSum += n
-            diff = curSum - k
-
-            res += prefixSum.get(diff, 0)
-            prefixSum[curSum] = 1 + prefixSum.get(curSum, 0)
+            cursum += n
+            diff = cursum - k
+            res += prefix_sum.get(diff, 0)
+            prefix_sum[cursum] = 1 + prefix_sum.get(cursum, 0)
         return res
