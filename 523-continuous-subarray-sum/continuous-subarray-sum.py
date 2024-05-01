@@ -4,8 +4,9 @@ class Solution:
         curSum = 0
         for i, n in enumerate(nums):
             curSum += n
-            if (curSum % k) not in remainder:
-                remainder[curSum % k] = i
-            elif curSum%k in remainder and i - remainder[curSum % k] >= 2:
+            r = curSum % k
+            if r not in remainder:
+                remainder[r] = i
+            elif i - remainder[r] >= 2:
                 return True
         return False
