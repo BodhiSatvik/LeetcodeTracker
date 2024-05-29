@@ -13,5 +13,6 @@ class Solution:
                 count -= 1
                 if count == 0:
                     candidate = num
+                    count += 1
         
         return candidate
