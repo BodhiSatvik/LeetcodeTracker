@@ -3,7 +3,6 @@ class Solution:
         a = collections.Counter(arr)
         ase = set()
         for v in a.values():
-            print(v)
             if v in ase:
                 return False
             ase.add(v)
