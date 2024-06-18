@@ -7,9 +7,13 @@ class Solution:
         #         return False
         #     ase.add(v)
         # return True
-        freq = {}
-        for x in arr:
-            freq[x] = freq.get(x, 0) + 1
+        # freq = {}
+        # for x in arr:
+        #     freq[x] = freq.get(x, 0) + 1
+        cnt = Counter(arr)     
+        x = cnt.values()
+        y = set(x)
+        return len(x) == len(y)
 
         return len(freq) == len(set(freq.values()))
         
