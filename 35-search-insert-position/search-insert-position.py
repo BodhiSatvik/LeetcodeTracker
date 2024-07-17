@@ -8,4 +8,4 @@ class Solution:
                 l = m + 1
             else:
                 r = m - 1
-        return m + 1 if nums[m] < target else m 
+        return l
